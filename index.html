@@ -998,12 +998,12 @@ function initializeScratchCard() {
 
 const PLACES = {
   res: {
-    label: "RESIDENCE",
-    title: "Shanti Complex",
-    when: "Haldi · Mehndi · Sangeet  |  3rd – 4th December 2026",
-    address: "137 M. C. Colony,Hisar",
+    label: "HALDI & SANGEET VENUE",
+    title: "Maharaja Agrasen Bhawan",
+    when: "",
+    address: "Near Devi Mandir , Gharaunda",
     side: "",
-    link: ""
+    link: "https://maps.app.goo.gl/a1hnfN6bTJiEPXyc9?g_st=aw"
   },
 
   haldi: {
@@ -1423,19 +1423,41 @@ function renderThankYouNames() {
 
 const RSVP = {
   people: [
-    { name: "Jai Pal Goel" },
-    { name: "K.G. Goel" },
-    { name: "Ashok Goel" },
-    { name: "Pawan Goel" },
-    { name: "Sanjay Goel" },
-    { name: "Vinod Goel" }
+    {
+      name: "Shyam Sunder Goel",
+      relation: "Groom's Father",
+      phone: "+91 9416286851"
+    },
+    {
+      name: "Naman Goel",
+      relation: "Groom's Brother",
+      phone: "+91 8950752691"
+    }
   ]
 };
 
 function createRsvpCard(person) {
+  const phoneDigits = person.phone.replace(/\D/g, "");
+  const message = encodeURIComponent(
+    `Hello ${person.name}, Congratulations! 🙏`
+  );
+
   return `
     <div class="rc">
       <span class="nm2">${person.name}</span>
+      <span class="rel">${person.relation}</span>
+      <span class="ph">${person.phone}</span>
+
+      <div class="acts">
+        <a class="rb" href="tel:+${phoneDigits}">📞 CALL</a>
+        <a
+          class="rb wa"
+          target="_blank"
+          rel="noreferrer"
+          href="https://wa.me/${phoneDigits}?text=${message}">
+          WHATSAPP
+        </a>
+      </div>
     </div>
   `;
 }
