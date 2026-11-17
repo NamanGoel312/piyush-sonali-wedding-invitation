@@ -1006,6 +1006,12 @@ const PLACES = {
     link: ""
   },
 
+  haldi: {
+    title: "Maharaja Agrasen Bhawan, Near Devi Mandir , Gharaunda",
+    address: "Maharaja Agrasen Bhawan, Near Devi Mandir , Gharaunda",
+    link: "https://maps.app.goo.gl/a1hnfN6bTJiEPXyc9?g_st=aw"
+  },
+
   venue: {
     label: "WEDDING VENUE",
     title: "Maharaja Aggarsain Bhawan",
@@ -1028,7 +1034,8 @@ function getMapsLink(place) {
 const EVENTS = [
   {
     key: "haldi",
-    location: "res",
+    location: "haldi",
+    locationLabel: "Maharaja Agrasen Bhawan, Near Devi Mandir , Gharaunda",
     background: "g-haldi-bg.png",
     picture: "haldi.png",
     emoji: "🌼",
@@ -1039,7 +1046,7 @@ const EVENTS = [
     timeOfDay: "A MORNING",
     description: "Filled with love, laughter and turmeric.",
     name: "HALDI CEREMONY",
-    time: "3rd December 2026 | 10:00 AM",
+    time: "3rd December 2026 | 11:00 AM",
     color: "#b45309",
     pillColor: "#92400e",
     pillBackground: "#f59e0b1a",
@@ -1211,9 +1218,9 @@ function createEventSchedule(schedule) {
 
 function createEventCard(event) {
   const place = event.location ? PLACES[event.location] : null;
-  const locationText = event.location === "res"
+  const locationText = event.locationLabel || (event.location === "res"
     ? "At our residence"
-    : `At ${place?.title || ""}`;
+    : `At ${place?.title || ""}`);
 
   // Same badge on every card: "3rd December 2026 | 10:00 AM" -> date on line 1, time on line 2
   const [datePart, timePart] = (event.time || event.date || "").split(" | ");
