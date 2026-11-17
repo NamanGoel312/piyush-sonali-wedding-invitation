@@ -1116,9 +1116,7 @@ const EVENTS = [
     color: "#7f1d1d",
     titleColor: "#7f1d1d",
     schedule: [
-      ["✦ Sehrabandi", "6:00 PM"],
-      ["✦ Ghurchari", "7:00 PM"],
-      ["✦ Departure of Barat", "7:15 PM"],
+      ["✦ Departure of Barat", "7:00 PM"],
       ["✦ Dinner", "8:00 PM"],
       ["✦ Phere", "Taaron Ki Chhaon Mein"]
     ]
@@ -1361,12 +1359,12 @@ const THANKS = {
 
   uncles: {
     label: "RSVP",
-    names: ["Mukesh Jain", "Rakesh Jain", "Dharamvir Jain"]
+    names: ["Jai Pal Goel", "K.G. Goel", "Ashok Goel", "Pawan Goel", "Sanjay Goel", "Vinod Goel"]
   },
 
   hosts: {
     label: "LOVINGLY INVITED BY",
-    names: ["Sanyam", "Raman", "Lavanya", "Bhavya", "Harshita", "Harshit", "Gautam"]
+    names: ["Aayansh", "Aarush", "Aarav", "Shivansh", "Aryaveer", "Arjun"]
   },
 
   // Add a cousins section here if required:
@@ -1374,7 +1372,7 @@ const THANKS = {
 
   firm: {
     label: "WITH BEST COMPLIMENTS FROM",
-    name: ["Arhem Super Store", "Jain Medical Hall"]
+    name: ["Goel Family"]
   }
 };
 
@@ -1425,46 +1423,19 @@ function renderThankYouNames() {
 
 const RSVP = {
   people: [
-    {
-      name: "Mukesh Jain",
-      relation: "Groom's Father",
-      phone: "+91 9992122932"
-    },
-    {
-      name: "Yogita Jain",
-      relation: "Groom's Mother",
-      phone: "+91 9728283945"
-    },
-    {
-      name: "Sanyam Jain",
-      relation: "Groom's Brother",
-      phone: "+91 9991480309"
-    }
+    { name: "Jai Pal Goel" },
+    { name: "K.G. Goel" },
+    { name: "Ashok Goel" },
+    { name: "Pawan Goel" },
+    { name: "Sanjay Goel" },
+    { name: "Vinod Goel" }
   ]
 };
 
 function createRsvpCard(person) {
-  const phoneDigits = person.phone.replace(/\D/g, "");
-  const message = encodeURIComponent(
-    `Hello ${person.name}, Congratulations! 🙏`
-  );
-
   return `
     <div class="rc">
       <span class="nm2">${person.name}</span>
-      <span class="rel">${person.relation}</span>
-      <span class="ph">${person.phone}</span>
-
-      <div class="acts">
-        <a class="rb" href="tel:+${phoneDigits}">📞 CALL</a>
-        <a
-          class="rb wa"
-          target="_blank"
-          rel="noreferrer"
-          href="https://wa.me/${phoneDigits}?text=${message}">
-          WHATSAPP
-        </a>
-      </div>
     </div>
   `;
 }
